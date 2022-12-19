@@ -39,7 +39,6 @@ pipenv run <script>
     pipenv run upgma
     pipenv run cl
     ```
-    ```
 4. Find the best parameters for the SOM by running the analysis scripts:
     ```sh
     pipenv run analysis
