@@ -1,0 +1,11 @@
+# Normalized datasets (build artifacts)
+datasets/normalized/*
+!datasets/normalized/README.md
+
+# Preprocessed datasets (build artifacts, except for the given ones)
+datasets/preprocessed/*
+!datasets/preprocessed/README.md
+
+# Evaluation results (build artifacts)
+evaluation/results/*
+!evaluation/results/README.md

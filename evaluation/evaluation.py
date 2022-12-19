@@ -1,0 +1,1 @@
+#TODO: find the best parameters for SOM according to the results of the SOM analysis
