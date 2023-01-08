@@ -1,9 +1,12 @@
 from scipy.cluster.hierarchy import dendrogram, linkage
 import matplotlib.pyplot as plt
+import pandas as pd
 
-X = [[5,3], [10,15], [15,12], [24,10], [30,45], [85,70], [71,80], [60,78], [55,52], [80,91]]
+# define data
+data = pd.read_csv(r'/home/m/NEC/A3/unsupervised-learning/datasets/raw/A3-data.txt')
 
-Z = linkage(X, method='average')
+# method='average' should be UPGMA
+Z = linkage(data, method='average')
 
 plt.figure(figsize=(25, 10))
 dendrogram(Z)

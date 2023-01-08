@@ -1,19 +1,12 @@
 from sklearn.cluster import KMeans
 import matplotlib.pyplot as plt
+import pandas as pd
+data = pd.read_csv(r'/home/m/NEC/A3/unsupervised-learning/datasets/raw/A3-data.txt')
 
-X = [[5,3], [10,15], [15,12], [24,10], [30,45], [85,70], [71,80], [60,78], [55,52], [80,91]]
+kmeans = KMeans(n_clusters=6)
+kmeans.fit(data)
 
-# use k-means to classify the patterns in k = 2, 3, …, K classes
-# K = 5, because?
-K = 5
-for k in range(2,K) :
-        
-    kmeans = KMeans(n_clusters=k)
-    kmeans.fit(X)
+labels = kmeans.predict(data)
 
-    labels = kmeans.predict(X)
-
-    colors = ['r', 'g']
-    for i in range(len(X)):
-        plt.scatter(X[i][0], X[i][1], c=colors[labels[i]])
-    plt.show()
+data.plot.scatter(x="x", y="y", c=labels)
+plt.show()

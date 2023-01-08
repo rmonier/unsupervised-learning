@@ -1,9 +1,11 @@
 from scipy.cluster.hierarchy import dendrogram, linkage
 import matplotlib.pyplot as plt
+import pandas as pd
 
-X = [[5,3], [10,15], [15,12], [24,10], [30,45], [85,70], [71,80], [60,78], [55,52], [80,91]]
+data = pd.read_csv(r'/home/m/NEC/A3/unsupervised-learning/datasets/raw/A3-data.txt')
 
-Z = linkage(X, method='complete')
+# method='complete' should be complete linkage
+Z = linkage(data, method='complete')
 
 plt.figure(figsize=(25, 10))
 dendrogram(Z)
