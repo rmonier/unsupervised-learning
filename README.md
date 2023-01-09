@@ -46,8 +46,9 @@ pipenv run <script>
     ```
 5. Run and plot the SOM with the best parameters:
     ```sh
-    pipenv run som
+    pipenv run som <vertical> <horizontal> <dataset> <lr> <sigma> <classname> <epochs>
     ```
+    You can also do `pipenv run som --help` to see the available parameters.
 
 ## Credits
 
