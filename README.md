@@ -1,4 +1,4 @@
-# Classification
+# Unsupervised learning
 
 Note: You can see the README of the subdirectories for more details about them.
 
