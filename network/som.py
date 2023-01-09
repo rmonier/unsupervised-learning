@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 from matplotlib.colors import ListedColormap
 import pandas as pd
 import argparse
+import numpy as np
 
 # Get parameters
 parser = argparse.ArgumentParser(
@@ -23,6 +24,10 @@ parser.add_argument('classname', type=str, default='class',
                     help='The class column name')
 parser.add_argument('epochs', type=int, default=1,
                     help='The number of epochs to train the SOM for.')
+parser.add_argument('--no-plot', action='store_true', default=False,
+                    help='If set, the plot will not be shown.')
+parser.add_argument('-o', nargs='?', type=str,
+                    help='The output file to save the results to.')
 
 args = parser.parse_args()
 
@@ -42,15 +47,22 @@ som.fit(data, epochs=args.epochs)
 
 predictions = som.predict(data)
 
-# Plot the results
-fig, ax = plt.subplots(nrows=2, ncols=1, figsize=(5,7))
-x = data[:,0]
-y = data[:,1]
-colors = ['red', 'green', 'blue']
+if(args.no_plot):
+    if(args.o is None):
+        raise Exception("Output file not specified. Use -o to specify output file.")
+    # Save the results
+    results = pd.DataFrame({'class': label, 'prediction': predictions})
+    results.to_csv(args.o, index=False, sep=';', encoding='utf8')
+else:
+    # Plot the results
+    fig, ax = plt.subplots(nrows=2, ncols=1, figsize=(5,7))
+    x = data[:,0]
+    y = data[:,1]
+    colors = ['red', 'green', 'blue']
 
-ax[0].scatter(x, y, c=label, cmap=ListedColormap(colors))
-ax[0].title.set_text('Actual Classes')
-ax[1].scatter(x, y, c=predictions, cmap=ListedColormap(colors))
-ax[1].title.set_text('SOM Predictions')
+    ax[0].scatter(x, y, c=label, cmap=ListedColormap(colors))
+    ax[0].title.set_text('Actual Classes')
+    ax[1].scatter(x, y, c=predictions, cmap=ListedColormap(colors))
+    ax[1].title.set_text('SOM Predictions')
 
-plt.show()
+    plt.show()
