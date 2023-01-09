@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 # define data
-data = pd.read_csv('datasets/raw/A3-data.txt')
+data = pd.read_csv('datasets/preprocessed/A3-data.csv', encoding='utf8', sep=';')
 # initialize PCA model
 pca = PCA(n_components=2)
 

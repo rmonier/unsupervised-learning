@@ -5,7 +5,7 @@ import pandas as pd
 
 model = TSNE(n_components=2)
 
-data = pd.read_csv('datasets/raw/A3-data.txt')
+data = pd.read_csv('datasets/preprocessed/A3-data.csv', encoding='utf8', sep=';')
 tsne_results = model.fit_transform(data)
 
 plt.scatter(tsne_results[:, 0], tsne_results[:, 1], c=data.iloc[:,4])
