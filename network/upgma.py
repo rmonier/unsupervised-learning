@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 # define data
-data = pd.read_csv(r'/home/m/NEC/A3/unsupervised-learning/datasets/raw/A3-data.txt')
+data = pd.read_csv('datasets/raw/A3-data.txt')
 
 # method='average' should be UPGMA
 Z = linkage(data, method='average')
