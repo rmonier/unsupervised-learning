@@ -42,9 +42,8 @@ pipenv run <script>
 4. Find the best parameters for the SOM by running the analysis scripts:
     ```sh
     pipenv run analysis
-    pipenv run evaluate
     ```
-5. Run and plot the SOM with the best parameters:
+5. Run and plot the SOM with the best parameters according to the plots in results:
     ```sh
     pipenv run som <vertical> <horizontal> <dataset> <lr> <sigma> <classname> <epochs>
     ```

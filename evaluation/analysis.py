@@ -11,13 +11,13 @@ def main():
             for sigma in sigmas:
                 for epoch in epochs:
                     for horizontal in horizontals:
-                        out_filename = f"som_A3-data_{vertical}_{horizontal}_{learning_rate}_{sigma}_{epoch}.csv"
+                        out_filename = f"som_A3-data_{vertical}_{horizontal}_{learning_rate}_{sigma}_{epoch}.png"
                         cmd = f"python network/som.py {vertical} {horizontal} \"datasets/preprocessed/A3-data.csv\" {learning_rate} {sigma} \"class\" {epoch} --no-plot -o \"evaluation/results/{out_filename}\""
                         print(f"{cmd}\n")
                         subprocess.run(cmd)
                         print("\n")
                         
-                        out_filename = f"som_A3-top10s_{vertical}_{horizontal}_{learning_rate}_{sigma}_{epoch}.csv"
+                        out_filename = f"som_A3-top10s_{vertical}_{horizontal}_{learning_rate}_{sigma}_{epoch}.png"
                         cmd = f"python network/som.py {vertical} {horizontal} \"datasets/preprocessed/A3-top10s.csv\" {learning_rate} {sigma} \"top genre\" {epoch} --no-plot -o \"evaluation/results/{out_filename}\""
                         print(f"{cmd}\n")
                         subprocess.run(cmd)
